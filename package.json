@@ -1,0 +1,21 @@
+{
+   "name": "tomtim",
+   "version": "1.0.0",
+   "description": "CLI Pomodoro timer",
+   "homepage": "https://github.com/NAndreasson/tomtim",
+   "author": "Niklas Andréasson <niklas@nandreasson.se> (http://nandreasson.se)",
+   "license": "MIT",
+   "repository": {
+      "type": "git",
+      "url": "git://github.com/NAndreasson/tomtim.git"
+    },
+   "main": "index",
+   "dependencies": {
+      "growl": "1.7.0",
+      "commander": "2.2.0"
+   },
+   "preferGlobal": "true",
+   "bin": {
+      "tomtim": "index"
+   }
+}

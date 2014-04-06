@@ -1,0 +1,57 @@
+#!/usr/bin/env node
+var readline = require('readline');
+var program = require('commander');
+var growl = require('growl');
+var Timer = require('./timer');
+
+var rl = readline.createInterface({
+   input: process.stdin,
+   output: process.stdout
+});
+
+program
+   .version('0.0.1')
+   .usage('[options]')
+   .option('-p --pomodoro <n>', 'Length of pomodoro in minutes', parseInt)
+   .option('-r --rest <n>', 'Length of break in minutes', parseInt)
+   .parse(process.argv);
+
+var timer = Timer({
+   pomodoro: program.pomodoro,
+   rest: program.rest
+});
+
+
+function whatNowPrompt() {
+   rl.question('What now? (p)omodoro, (b)reak, or (e)xit?', function(answer) {
+      switch (answer) {
+         case 'p':
+            console.log('Pomodoro started');
+            timer.startPom(program.pomodoro);
+            break;
+         case 'b':
+            console.log('Break started');
+            timer.startBreak(program.rest);
+            break;
+         case 'e':
+            process.exit();
+            break;
+         default:
+            console.log('Invalid answer, try again');
+            whatNowPrompt();
+      }
+   });
+}
+
+timer.on('pomodoro', function() {
+   growl('Pomodoro finished!');
+   whatNowPrompt();
+});
+
+timer.on('break', function() {
+   growl('Break finished!');
+   whatNowPrompt();
+});
+
+console.log('Pomodoro started');
+timer.startPom(program.pomodoro);
