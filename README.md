@@ -5,7 +5,7 @@ CLI pomodoro timer created in Node.js
 
 ## Installation
 
-npm install -g tomtim
+`npm install -g tomtim`
 
 ## Usage
     // start timer with 1 min pomodoro length
