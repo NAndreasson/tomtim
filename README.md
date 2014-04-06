@@ -1,7 +1,7 @@
 tomtim
 ======
 
-CLI pomodoro timer created in Node.js
+CLI pomodoro timer created in Node.js. Notifies you when pomodoro/break is finished.
 
 ## Installation
 
