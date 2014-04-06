@@ -11,6 +11,8 @@ npm install -g tomtim
     // start timer with 1 min pomodoro length
     $ tomtim -p 1
 
+Flags are optional, default settings are 25 min pomodoros and 5 min breaks
+
 ## Options
     -h, --help         output usage information
     -V, --version      output the version number
